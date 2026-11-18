@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>moa 받기</title>
+<meta name="description" content="무료 음악 앱 moa. 7080 가요, 찬송가, 우리들의 발라드. 웹에서 바로 · 안드로이드 · 아이폰.">
+<meta property="og:title" content="moa — 무료 음악 앱">
+<meta property="og:description" content="웹에서 바로 듣기 · 안드로이드 APK · 아이폰 홈 화면 앱">
+<meta property="og:image" content="https://damho0514.github.io/moa-music-releases/icon.png">
+<meta name="theme-color" content="#0B0B0F">
+<link rel="icon" href="icon.png">
+<link rel="apple-touch-icon" href="icon.png">
+<style>
+  :root { --bg:#0B0B0F; --s1:#15161B; --s2:#1E2027; --line:rgba(255,255,255,.08); --ink:#F4F5F7; --sub:#9A9CA6; --faint:#5F616B; --acc:#D6F35B; --accInk:#141508; --vio:#8C7CF7; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font:15px/1.6 -apple-system,"Apple SD Gothic Neo","Noto Sans KR","Segoe UI",Roboto,sans-serif; }
+  .glow { position:fixed; inset:0; z-index:-1; pointer-events:none; background:radial-gradient(700px 420px at 80% -10%, rgba(140,124,247,.22), transparent 60%), radial-gradient(600px 400px at 0% 100%, rgba(214,243,91,.10), transparent 60%), var(--bg); }
+  main { max-width: 980px; margin: 0 auto; padding: 36px 16px 20px; }
+  .hero { display:grid; grid-template-columns: minmax(0,1fr) 300px; gap: 32px; align-items: center; }
+  @media (max-width: 820px) { .hero { grid-template-columns: 1fr; } .phone { display:none; } }
+  .brand { display:flex; align-items:center; gap:14px; }
+  .brand img { width:64px; height:64px; border-radius:16px; }
+  .brand h1 { margin:0; font-size:40px; letter-spacing:-1px; }
+  .lead { color:var(--sub); font-size:17px; margin:14px 0 18px; }
+  .tags { display:flex; flex-wrap:wrap; gap:6px; margin-bottom:20px; }
+  .tag { font-size:12px; padding:3px 10px; border-radius:999px; background:var(--s2); color:var(--sub); border:1px solid var(--line); }
+  .btn { display:flex; align-items:center; gap:12px; text-decoration:none; color:var(--ink); background:var(--s1); border:1px solid var(--line); border-radius:14px; padding:13px 16px; margin:8px 0; transition: transform .08s, background .15s; }
+  .btn:hover { background:var(--s2); } .btn:active { transform: scale(.98); }
+  .btn .ic { font-size:22px; width:28px; text-align:center; }
+  .btn .t { display:flex; flex-direction:column; line-height:1.3; }
+  .btn .t b { font-size:16px; } .btn .t small { color:var(--sub); font-size:12px; }
+  .btn.main { background:var(--acc); color:var(--accInk); border:0; padding:16px; }
+  .btn.main .t small { color: rgba(20,21,8,.7); }
+  .btn.rec { outline:2px solid var(--acc); outline-offset:2px; }
+  .btn .you { margin-left:auto; font-size:11px; font-weight:800; background:var(--acc); color:var(--accInk); padding:2px 8px; border-radius:999px; display:none; }
+  .btn.rec .you { display:inline-block; }
+  .btn.main .you { background:var(--accInk); color:var(--acc); }
+  .phone { aspect-ratio: 390/844; border-radius: 34px; border: 8px solid #22242c; overflow:hidden; background:#000; box-shadow: 0 30px 80px rgba(0,0,0,.5); }
+  .phone img { width:100%; height:100%; object-fit:cover; display:block; transition: opacity .3s; }
+  section { margin-top: 40px; }
+  h2 { font-size:13px; letter-spacing:1.5px; color:var(--sub); margin:0 0 12px; padding-bottom:8px; border-bottom:1px solid var(--line); }
+  .cards { display:grid; grid-template-columns: repeat(auto-fill, minmax(220px,1fr)); gap:12px; }
+  .cards div { background:var(--s1); border:1px solid var(--line); border-radius:12px; padding:14px; }
+  .cards b { display:block; margin-bottom:4px; } .cards p, .cards ol { margin:0; color:var(--sub); font-size:14px; }
+  .cards ol { padding-left: 18px; } .cards ol b { display:inline; color: var(--ink); }
+  .shots { display:flex; gap:12px; overflow-x:auto; padding-bottom:6px; }
+  .shots img { height: 420px; border-radius: 18px; border:1px solid var(--line); }
+  @media (max-width: 600px) { .shots img { height: 340px; } }
+  .kakao { display:none; background:#fee500; color:#191600; border-radius:10px; padding:12px 14px; font-weight:700; margin-bottom:16px; }
+  footer { color:var(--faint); font-size:12px; text-align:center; padding:36px 0 44px; }
+  footer a { color: var(--sub); }
+</style>
+<script>
+  (function () {
+    var ua = navigator.userAgent || '';
+    if (/KAKAOTALK/i.test(ua) && !/[?&]inapp=1/.test(location.search)) location.replace('kakaotalk://web/openExternal?url=' + encodeURIComponent(location.href));
+  })();
+</script>
+</head>
+<body>
+<div class="glow"></div>
+<main>
+  <div class="kakao" id="kakao">카카오톡 안에서는 설치가 잘 안 돼요. ⋯ 메뉴 → <b>다른 브라우저로 열기 / Safari로 열기</b></div>
+  <div class="hero">
+    <div>
+      <div class="brand"><img src="icon.png" alt=""><h1>moa</h1></div>
+      <p class="lead">7080 가요, 찬송가, 우리들의 발라드를 무료로. 엄마·아빠를 위한 모음, 연속 듣기, 음성으로 찬송가 찾기까지.</p>
+      <div class="tags"><span class="tag">무료</span><span class="tag">광고 없음</span><span class="tag">웹 · 안드로이드 · 아이폰</span><span class="tag" id="vtag">최신 버전</span></div>
+      <a class="btn main" id="b-web" href="https://moa.voxel-valley-server.workers.dev/">
+        <span class="ic">▶</span><span class="t"><b>지금 바로 듣기</b><small>브라우저에서 · 설치 없음 · PC·맥·휴대폰</small></span><span class="you">추천</span>
+      </a>
+      <a class="btn" id="b-android" href="https://github.com/damho0514/moa-music-releases/releases/latest/download/moa.apk">
+        <span class="ic">🤖</span><span class="t"><b>안드로이드 앱 받기</b><small id="apkinfo">APK · 안드로이드 7.0 이상</small></span><span class="you">내 기기</span>
+      </a>
+      <a class="btn" id="b-iphone" href="#iphone">
+        <span class="ic">🍎</span><span class="t"><b>아이폰에 설치</b><small>홈 화면 앱 · 무료 · 앱스토어 필요 없음</small></span><span class="you">내 기기</span>
+      </a>
+    </div>
+    <div class="phone"><img id="phone" src="shots/home.png" alt="moa 화면"></div>
+  </div>
+
+  <section id="iphone">
+    <h2>설치 방법</h2>
+    <div class="cards">
+      <div><b>🍎 아이폰 (무료)</b><ol><li><b>Safari</b>로 <a href="https://moa.voxel-valley-server.workers.dev/" style="color:var(--acc)">moa</a>를 열어요.</li><li>아래 공유 버튼 <b>⬆︎</b> → <b>홈 화면에 추가</b>.</li><li>홈 화면의 moa 아이콘으로 실행하면 앱처럼 전체 화면으로 열려요.</li></ol></div>
+      <div><b>🤖 안드로이드</b><ol><li><b>안드로이드 앱 받기</b>로 APK를 내려받아요.</li><li>파일을 열고 “출처를 알 수 없는 앱” 설치를 허용해요.</li><li>잠금 화면에서도 다음 곡 · 이전 곡이 돼요.</li></ol></div>
+      <div><b>💻 PC · 맥</b><ol><li><b>지금 바로 듣기</b>를 누르면 끝.</li><li>크롬은 주소창의 <b>설치</b> 아이콘으로 앱처럼 쓸 수 있어요.</li><li>키보드 미디어 키로 재생·다음 곡도 돼요.</li></ol></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>화면</h2>
+    <div class="shots" id="shots"></div>
+  </section>
+
+  <section>
+    <h2>들을 수 있는 것</h2>
+    <div class="cards">
+      <div><b>🎙️ 7080 가요</b><p>조용필, 나훈아, 송골매, 들국화, 이선희… 그 시절 명곡을 무드별로.</p></div>
+      <div><b>🙏 찬송가</b><p>새찬송가 장 번호로 바로. 합창·독창·피아노·반주(MR)까지. “305장 틀어 줘”처럼 음성으로도 찾아요.</p></div>
+      <div><b>🎤 우리들의 발라드</b><p>시즌별 공식 영상을 연속 듣기로. 조회수·시즌별로 골라 들어요.</p></div>
+      <div><b>👨‍👩‍👧 엄마·아빠 모음</b><p>엄마의 찬송가, 아빠의 그 시절 가요, 옛날 트로트까지 한 번에.</p></div>
+    </div>
+  </section>
+</main>
+<footer>moa · 무료 음악 앱 · 곡은 YouTube 공식 영상과 자유 이용 음원으로 재생돼요 · <a href="https://github.com/damho0514/moa-music-releases/releases">모든 버전</a></footer>
+<script>
+(function () {
+  var $ = function (id) { return document.getElementById(id); };
+  var ua = navigator.userAgent || '';
+  if (/KAKAOTALK/i.test(ua)) $('kakao').style.display = 'block';
+  var ios = /iPhone|iPad|iPod/i.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  var android = /Android/i.test(ua);
+  $(android ? 'b-android' : ios ? 'b-iphone' : 'b-web').classList.add('rec');
+
+  var shots = ['home', 'player', 'hymnal', 'ballad'];
+  shots.forEach(function (s) { var im = document.createElement('img'); im.loading = 'lazy'; im.src = 'shots/' + s + '.png'; im.alt = ''; im.onerror = function () { im.remove(); }; $('shots').appendChild(im); });
+  var k = 0;
+  setInterval(function () { k = (k + 1) % shots.length; $('phone').src = 'shots/' + shots[k] + '.png'; }, 4000);
+
+  fetch('https://api.github.com/repos/damho0514/moa-music-releases/releases/latest').then(function (r) { return r.json(); }).then(function (rel) {
+    if (!rel || !rel.tag_name) return;
+    $('vtag').textContent = rel.tag_name;
+    var apk = (rel.assets || []).filter(function (a) { return /\.apk$/.test(a.name); })[0];
+    if (apk) $('apkinfo').textContent = 'APK ' + Math.round(apk.size / 1e6) + 'MB · ' + rel.tag_name + ' · 안드로이드 7.0 이상';
+  }).catch(function () {});
+})();
+</script>
+</body>
+</html>
